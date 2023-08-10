@@ -1,12 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { IsDarkContext } from "../context/darkContext"
 const CountrieCard = ({ countrie }) => {
-  
+  const isDarkMode = useContext(IsDarkContext);
   return (
-    <>
+    <div className={isDarkMode ? "dark" : ""}>
       <div className="bg-white rounded overflow-hidden shadow-lg mx-7 mb-14 dark:bg-darkBlue dark:text-white dark:border-darkBlue">
         <Link to={`/countrieDetails/${countrie.name.common}`}>
-        <img className="h-64 md:h-48 md:w-auto" src={countrie.flags.png} alt="Mountain" />
+        <img className="h-68 w-full  md:h-48 md:w-auto" src={countrie.flags.png} alt="Mountain" />
         </Link>
         <div className="px-6 py-4">
           <Link to={`/countrieDetails/${countrie.name.common}`}>
@@ -26,7 +27,7 @@ const CountrieCard = ({ countrie }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

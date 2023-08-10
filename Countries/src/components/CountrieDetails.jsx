@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { IsDarkContext } from "../context/darkContext"
 const CountrieDetails = () => {
+  const isDarkMode = useContext(IsDarkContext);
   const { countrieName } = useParams();
   const [countryDetails, setCountryDetails] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
     console.log(countrieName);
     axios
@@ -14,12 +16,15 @@ const CountrieDetails = () => {
         setCountryDetails(response.data[0]);
       });
   }, []);
+
   const back = () => {
     navigate("/");
   };
+
   return (
-    <div className="dark:bg-veryDarkBlue">
-      <div className="container mx-auto pt-8 pb-[600px] ">
+    <div className={isDarkMode ? "dark" : ""}> 
+      <div className=" h-screen  dark:bg-veryDarkBlue">
+      <div className="container mx-auto pt-8 ">
         <div>
           <button
             type="button"
@@ -148,6 +153,8 @@ const CountrieDetails = () => {
         </div>
       </div>
     </div>
+    </div>
+    
 
   );
 };

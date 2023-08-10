@@ -4,25 +4,38 @@ import Navbar from "./components/Navbar.jsx"
 import CountriesList from "./components/CountriesList.jsx";
 import { Route, Routes } from 'react-router-dom';
 import CountrieDetails from './components/CountrieDetails';
-import { useState } from 'react';
+import { useReducer } from 'react';
+import { IsDarkContext } from "./context/darkContext"
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [DarkMode,dispatch] = useReducer(darkReducer,false);
+  function handleDarkMode(state){ 
+    dispatch({ 
+     isDarkMode:state
+    })
+  }
   return (
-    <div class={isDarkMode ? "dark" : ""}>
-      <Navbar setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
-      <Routes>
-        <Route
-          path='/'
-          element={<CountriesList setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />}>
-        </Route>
-        <Route
-          path='/countrieDetails/:countrieName'
-          element={<CountrieDetails setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />}
-        >
-        </Route>
-      </Routes>
-    </div>
+    <IsDarkContext.Provider value={DarkMode}>
+          <Navbar onDarkMode={handleDarkMode} />
+          <Routes>
+            <Route
+              path='/'
+              element={<CountriesList />}>
+            </Route>
+            <Route
+              path='/countrieDetails/:countrieName'
+              element={<CountrieDetails />}
+            >
+            </Route>
+          </Routes>
+    </IsDarkContext.Provider>
+
   )
 }
-
+function darkReducer(DarkMode){ 
+     if(DarkMode){ 
+      return false;
+     }else{ 
+      return true;
+     }
+}
 export default App

@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { IsDarkContext } from "../context/darkContext"
 import CountrieCard from "./CountrieCard.jsx";
-
 const CountriesList = () => {
+  const isDarkMode = useContext(IsDarkContext);
   const [data, setData] = useState([]);
   const [searchCountry, setSearchCountry] = useState([]);
   const [searchValue, setSearchValue] = useState(null);
@@ -35,7 +36,8 @@ const CountriesList = () => {
   }, [selectedRegion]);
 
   return (
-    <div className="bg-veryLightGray dark:bg-veryDarkBlue ">
+    <div className={isDarkMode ? "dark" : ""}> 
+      <div className="bg-veryLightGray dark:bg-veryDarkBlue ">
       <div className="container mx-auto">
         <div className="flex md:flex-row flex-col mx-3 justify-between pt-10 pb-8 md:pr-7 ">
           <form >
@@ -100,6 +102,8 @@ const CountriesList = () => {
       </div>
 
     </div>
+    </div>
+    
   );
 };
 
