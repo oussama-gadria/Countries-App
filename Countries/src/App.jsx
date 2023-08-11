@@ -1,9 +1,9 @@
 
 import './App.css';
 import Navbar from "./components/Navbar.jsx"
-import CountriesList from "./components/CountriesList.jsx";
+import CountriesList from "./pages/CountriesList.jsx";
 import { Route, Routes } from 'react-router-dom';
-import CountrieDetails from './components/CountrieDetails';
+import CountrieDetails from './pages/CountrieDetails';
 import { useReducer } from 'react';
 import { IsDarkContext } from "./context/darkContext"
 function App() {
