@@ -108,9 +108,9 @@ const CountryData = ({ countryDetails }) => {
                         {bordersList.map((border, index) => (
                             <div key={index} className=" pt-1 shadow">
                                 <Link to={`/countrieDetails/${border}`}>
-                                    <a className="w-[105px] md:ml-1 flex items-center py-1 px-6 font-normal text-xs text-gray-500 dark:text-white bg-white hover:bg-gray-100   shadow-inner dark:bg-darkBlue dark:text-white dark:border-darkBlue">
+                                    <p className="w-[105px] md:ml-1 flex items-center py-1 px-6 font-normal text-xs text-gray-500 dark:text-white bg-white hover:bg-gray-100   shadow-inner dark:bg-darkBlue dark:text-white dark:border-darkBlue">
                                         {border}
-                                    </a>
+                                    </p>
                                 </Link>
                             </div>
                         ))}
