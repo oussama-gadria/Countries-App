@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IsDarkContext } from "../context/darkContext";
-import BackButton from "../components/common/backButton";
+import BackButton from "../components/common/BackButton";
 import CountryData from "../components/common/CountryData";
 import FlagCountry from "../components/common/FlagCountry";
 const CountrieDetails = () => {
