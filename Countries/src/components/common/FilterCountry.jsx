@@ -1,26 +1,54 @@
-const FilterCountry=({setSelectedRegion,selectedRegion})=>{ 
-    return ( 
-        <div className="relative inline-block pt-8 pl-7 md:pb-3 md:pt-0 md:pl-0">
-              <div className="relative inline-block ">
-                <select
-                  className="block appearance-none text-xs bg-white  pr-10 pl-6  py-3 rounded shadow leading-tight focus:outline-none focus:shadow-outline dark:bg-darkBlue dark:text-white dark:border-darkBlue"
-                  value={selectedRegion}
-                  onChange={(e) => setSelectedRegion(e.target.value)}
-                >
-                  <option value="">Filter by Region</option>
-                  <option value="Africa">Africa</option>
-                  <option value="America">America</option>
-                  <option value="Asia">Asia</option>
-                  <option value="Europe">Europe</option>
-                  <option value="Oceania">Oceania</option>
-                </select>
-                <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none ">
-                  <svg className="w-3 h-3 text-gray-400 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-    )
-}
+import React, { useState } from 'react';
+import "../../styles/Country.css";
+
+const FilterCountry = ({ setSelectedRegion, selectedRegion }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const selectRegion = (region) => {
+    setSelectedRegion(region);
+    setIsOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="relative inline-block text-left">
+      <div className='mx-7 pt-8 md:pt-0'>
+        <button
+          type="button"
+          className="inline-flex w-48   justify-between  rounded-md bg-white px-3 py-3 text-xs font-normal text-gray-900 shadow-sm  ring-gray-300 hover:bg-gray-50 dark:border-darkBlue dark:placeholder-gray-400 dark:text-white dark:bg-darkBlue"
+          id="menu-button"
+          aria-expanded={isOpen}
+          aria-haspopup="true"
+          onClick={toggleMenu}
+        >
+          {selectedRegion ? selectedRegion : "Filter by Region"}
+          <svg className=" h-5 w-5 text-gray-400" viewBox="0 0 15 20" fill="currentColor" aria-hidden="true">
+            <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+          </svg>
+        </button>
+      </div>
+      {isOpen && (
+        <div className="absolute mx-7 md:right-0 z-10 mt-1 w-48  rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:border-darkBlue dark:placeholder-gray-400 dark:text-white dark:bg-darkBlue" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1" >
+          <div className="py-1" role="none">
+            <a className="text-gray-700 block px-4 py-1 text-xs cursor-pointer" role="menuitem" tabIndex="-1" onClick={() => selectRegion("")}>Filter by Region</a>
+            <a className="text-gray-700 block px-4 py-1 text-xs cursor-pointer" role="menuitem" tabIndex="-1" onClick={() => selectRegion("Africa")}>Africa</a>
+            <a className="text-gray-700 block px-4 py-1 text-xs cursor-pointer" role="menuitem" tabIndex="-1" onClick={() => selectRegion("America")}>America</a>
+            <a className="text-gray-700 block px-4 py-1 text-xs cursor-pointer" role="menuitem" tabIndex="-1" onClick={() => selectRegion("Asia")}>Asia</a>
+            <a className="text-gray-700 block px-4 py-1 text-xs cursor-pointer" role="menuitem" tabIndex="-1" onClick={() => selectRegion("Europe")}>Europe</a>
+            <a className="text-gray-700 block px-4 py-1 text-xs cursor-pointer" role="menuitem" tabIndex="-1" onClick={() => selectRegion("Oceania")}>Oceania</a>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 export default FilterCountry;
+
+
+
+
+

@@ -16,7 +16,7 @@ const Navbar = ({onDarkMode}) => {
             </div>
             <div className="flex items-center mx-1">
               <a
-                className="text-black h-9 px-2 hover:bg-gray-700 hover:bg-veryDarkBlue hover:text-white rounded-md text-sm font-medium flex items-center dark:text-white dark:hover:bg-white dark:hover:text-darkBlue"
+                className="text-black h-9 px-2 hover:bg-gray-700 hover:bg-veryDarkBlue hover:text-white rounded-md text-sm font-medium flex items-center dark:text-white dark:hover:bg-white dark:hover:text-darkBlue cursor-pointer"
                 onClick={onDarkMode}
               >
                 <MoonSvg/>
