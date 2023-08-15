@@ -18,7 +18,7 @@ const CountrieCard = ({ countrie }) => {
           </Link>
           <div className="flex items-center mb-2 pt-2">
             <div className="font-bold text-xs mr-1">Population :</div>
-            <p className="text-gray-700 text-xs text-base">{countrie.population}</p>
+            <p className="text-gray-700 text-xs text-base">{(countrie.population).toLocaleString(undefined,{maximumFractionDigits: 0})}</p>
           </div>
           <div className="flex items-center mb-1">
             <div className="font-bold text-xs mr-2">Region :</div>

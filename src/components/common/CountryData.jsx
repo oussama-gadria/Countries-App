@@ -10,8 +10,8 @@ const CountryData = ({ countryDetails }) => {
         const borderExists = bordersList.some((country) => country === countryResult.name.common);
         if (borderExists) {
             return;
-        }   
-         setBordersList((prevBorders) => [...prevBorders, countryResult.name.common]); 
+        }
+        setBordersList((prevBorders) => [...prevBorders, countryResult.name.common]);
     }
     useEffect(() => {
         if (countryDetails.borders) {
@@ -41,7 +41,7 @@ const CountryData = ({ countryDetails }) => {
                                 Population:
                             </p>
                             <p className="mb-3 font-normal ml-1 text-xs text-gray-700 dark:text-gray-400 dark:text-white">
-                                {countryDetails?.population}
+                                {(countryDetails?.population)?.toLocaleString()}
                             </p>
                         </div>
 
@@ -93,26 +93,25 @@ const CountryData = ({ countryDetails }) => {
                                 Languages :
                             </p>
                             <p className="mb-3 font-normal text-xs  ml-1 text-gray-700 dark:text-gray-400 dark:text-white">
-                                Arabic
+                              English
                             </p>
                         </div>
                     </div>
                 </div>
                 <div className="pt-8 md:pt-0 md:flex md:flex-row">
                     <div>
-                        <p className="mb-3 pt-2 md:pl-10 text-xs  font-bold text-gray-700 dark:text-gray-400 dark:text-white">
+                        <p className="pt-2 mr-1  md:pl-10 text-xs  font-bold text-gray-700 dark:text-gray-400 dark:text-white">
                             Border Countries:
                         </p>
                     </div>
                     <div className="flex flex-wrap">
                         {bordersList.map((border, index) => (
-                            <div key={index} className=" pt-1 shadow">
-                                <Link to={`/countrieDetails/${border}`}>
-                                    <p className="w-[105px] md:ml-1 flex items-center py-1 px-6 font-normal text-xs text-gray-500 dark:text-white bg-white hover:bg-gray-100   shadow-inner dark:bg-darkBlue dark:text-white dark:border-darkBlue">
-                                        {border}
-                                    </p>
-                                </Link>
-                            </div>
+                            <Link to={`/countrieDetails/${border}`}>
+                                <a key={index} className="w-auto mx-1  md:ml-1 flex text center my-1 rounded-lg px-4 py-1   font-normal text-xs text-gray-500 dark:text-white bg-white hover:bg-gray-100   shadow-inner dark:bg-darkBlue dark:text-white dark:border-darkBlue">
+                                    {border}
+                                </a>
+                            </Link>
+
                         ))}
                     </div>
 
