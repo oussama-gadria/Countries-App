@@ -4,7 +4,7 @@ This project integrates with the REST Countries API to display country data and 
 
 ## Demo
 
-A live demo of the project can be found [here](countries-app-seven-omega.vercel.app).
+A live demo of the project can be found [here](https://countries-app-seven-omega.vercel.app).
 
 ## Features
 
