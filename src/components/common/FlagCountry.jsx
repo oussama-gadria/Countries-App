@@ -2,7 +2,7 @@ const FlagCountry=({countryDetails})=>{
     return ( 
         <> 
           <img
-                className=" md:h-[380px]  md:w-[700px] pr-10"
+                className="w-full lg:pr-10 lg:w-[700px] lg:h-[380px] "
                 src={countryDetails?.flags?.png}
                 alt=""
               />
