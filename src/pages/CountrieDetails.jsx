@@ -32,7 +32,7 @@ const CountrieDetails = () => {
               href="#"
               className="bg-white rounded-lg   dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:bg-veryDarkBlue"
             >
-              <div className="flex flex-wrap md:flex-nowrap bg-veryLightGray dark:bg-veryDarkBlue ">
+              <div className="flex flex-wrap lg:flex-nowrap bg-veryLightGray dark:bg-veryDarkBlue ">
                 <FlagCountry countryDetails={countryDetails} />
                 <CountryData countryDetails={countryDetails} />
               </div>
