@@ -24,7 +24,8 @@ A live demo of the project can be found [here](https://countries-app-seven-omega
 - [Axios](https://axios-http.com/) (for making HTTP requests)
 - [Styled Components](https://styled-components.com/) (for styling components)
 - [React Icons](https://react-icons.github.io/react-icons/) (for using icons)
-
+- [Vite](https://vitejs.dev/guide/) (Vite is a fast build tool.)
+-[Tailwind CSS](https://tailwindcss.com) (Tailwind CSS is a utility-first CSS framework).
 ## Getting Started
 
 ### Prerequisites
