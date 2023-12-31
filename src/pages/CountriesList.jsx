@@ -36,7 +36,6 @@ const CountriesList = () => {
       });
       setData(response.data);
       setSearchCountry(sortedData);
-      
     });
   }, []);
   

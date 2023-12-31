@@ -11,7 +11,6 @@ const CountrieDetails = () => {
   const { countrieName } = useParams();
   const [countryDetails, setCountryDetails] = useState([]);
 
-
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
